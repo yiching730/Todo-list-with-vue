@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Todo List</h1>
+
+            <input type="text" v-model="todo">
+            <input type="submit" value="add" @click="storeTodo">
+
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo }}
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+
+            data:{
+                todo:'',
+                todos:['Go to market', 'Buy new course']
+            },
+
+            methods:{
+                storeTodo(){
+
+                    this.todos.push(this.todo)
+                }
+            }
+
+        })
+    </script>
+
+</body>
+</html>
